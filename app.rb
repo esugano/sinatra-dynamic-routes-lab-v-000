@@ -23,11 +23,17 @@ class App < Sinatra::Base
    "#{params[:word1]} #{params[:word2]} #{params[:word3]} #{params[:word4]} #{params[:word5]}."
   end
 
-  get '/:operation/:number1/:number2' do
-    op = params[:operation]
-    num_1 = params[:number1].to_i
-    num_2 = params[:number2].to_i
-    "#{num_1.send(op, num_2)}"
-  end
-
+  get "/:operation/:number1/:number2" do
+     result = ""
+     if params[:operation] == "add"
+      (params[:number1].to_i + params[:number2].to_i).to_s
+     elsif params[:operation] == "subtract"
+      (params[:number1].to_i - params[:number2].to_i).to_s
+     elsif params[:operation] == "multiply"
+      (params[:number1].to_i * params[:number2].to_i).to_s
+     else
+       (params[:number1].to_i / params[:number2].to_i).to_s
+     end
+   end
+   
 end
