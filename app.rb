@@ -25,6 +25,7 @@ class App < Sinatra::Base
 
   get '/:operation/:number1/:number2' do
   op = params[:operation]
+  "#{op}"
   def math(op)
     num_1 = params[:number1].to_i
     num_2 = params[:number2].to_i
