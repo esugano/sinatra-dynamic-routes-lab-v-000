@@ -27,8 +27,7 @@ class App < Sinatra::Base
     op = params[:operation]
     num_1 = params[:number1].to_i
     num_2 = params[:number2].to_i
-    "#{num_1.send(op, b)}"
-
+    "#{num_1.send(op, num_2)}"
   end
 
 end
