@@ -24,10 +24,11 @@ class App < Sinatra::Base
   end
 
   get '/:operation/:number1/:number2' do
-    def math(:operation)
+    op =
+    def math(params[:operation])
       num_1 = params[:number1].to_i
       num_2 = params[:number2].to_i
-      num_1.send(:operation, b)
+      num_1.send(params[:operation], b)
     end
   end
 
